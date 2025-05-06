@@ -1,0 +1,39 @@
+version: "3.1"
+
+intents:
+  - ask_certificate_info
+  - ask_general_info
+  - ask_cost
+  - ask_documents
+  - greet
+  - goodbye
+  - fallback
+
+entities:
+  - certificate_type
+
+slots:
+  certificate_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: certificate_type
+
+actions:
+  - action_certificate_info
+  - action_fallback
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you with certificates today?"
+
+  utter_goodbye:
+    - text: "Goodbye! Feel free to come back if you need help."
+
+  utter_fallback:
+    - text: "I'm sorry, I didn't understand that. Can you rephrase it?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

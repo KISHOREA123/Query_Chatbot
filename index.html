@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QueryGov Chatbot</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary-color: #4f46e5;
+      --primary-light: #6366f1;
+      --bg-color: #ffffff;
+      --sidebar-bg: #f9fafb;
+      --chat-bg: #ffffff;
+      --message-bg: #f3f4f6;
+      --user-message-bg: #4f46e5;
+      --text-color: #111827;
+      --text-light: #6b7280;
+      --border-color: #e5e7eb;
+      --input-bg: #ffffff;
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark-theme {
+      --primary-color: #6366f1;
+      --primary-light: #818cf8;
+      --bg-color: #111827;
+      --sidebar-bg: #1f2937;
+      --chat-bg: #111827;
+      --message-bg: #1f2937;
+      --user-message-bg: #4f46e5;
+      --text-color: #f9fafb;
+      --text-light: #9ca3af;
+      --border-color: #374151;
+      --input-bg: #1f2937;
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+      line-height: 1.5;
+    }
+
+    .sidebar {
+      width: 260px;
+      background-color: var(--sidebar-bg);
+      border-right: 1px solid var(--border-color);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-header {
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .sidebar-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sidebar-title i {
+      font-size: 20px;
+    }
+
+    .sidebar-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+    }
+
+    .sidebar-section {
+      margin-bottom: 24px;
+    }
+
+    .sidebar-section h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .sidebar-item {
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-bottom: 6px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sidebar-item:hover {
+      background-color: var(--message-bg);
+    }
+
+    .sidebar-item i {
+      color: var(--text-light);
+      font-size: 16px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .chat-header {
+      padding: 16px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chat-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .chat-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chat-history {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background-color: var(--chat-bg);
+    }
+
+    .message {
+      max-width: 80%;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bot-message {
+      align-self: flex-start;
+    }
+
+    .user-message {
+      align-self: flex-end;
+    }
+
+    .message-content {
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .bot-message .message-content {
+      background-color: var(--message-bg);
+      color: var(--text-color);
+      border-top-left-radius: 4px;
+    }
+
+    .user-message .message-content {
+      background-color: var(--user-message-bg);
+      color: white;
+      border-top-right-radius: 4px;
+    }
+
+    .message-time {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    .user-message .message-time {
+      text-align: right;
+    }
+
+    .input-container {
+      padding: 16px;
+      border-top: 1px solid var(--border-color);
+      background-color: var(--chat-bg);
+    }
+
+    .input-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background-color: var(--input-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow);
+    }
+
+    .input-box textarea {
+      flex: 1;
+      padding: 12px 16px;
+      border: none;
+      background: transparent;
+      color: var(--text-color);
+      font-size: 15px;
+      resize: none;
+      height: 48px;
+      max-height: 200px;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .input-box button {
+      background: transparent;
+      border: none;
+      color: var(--primary-color);
+      padding: 0 16px;
+      cursor: pointer;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-box button i {
+      font-size: 18px;
+    }
+
+    .input-box button:hover {
+      color: var(--primary-light);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: var(--text-light);
+      cursor: pointer;
+      font-size: 18px;
+      transition: color 0.2s;
+    }
+
+    .theme-toggle:hover {
+      color: var(--primary-color);
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--text-light);
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      body {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">
+        <i class="fas fa-robot"></i>
+        <span>QueryGov</span>
+      </div>
+      <button class="theme-toggle" id="theme-toggle">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+
+    <div class="sidebar-content">
+      <div class="sidebar-section">
+        <h3>Certificates</h3>
+        <div class="sidebar-item" onclick="processMessage('Tell me about Birth Certificate')">
+          <i class="fas fa-baby"></i>
+          <span>Birth Certificate</span>
+        </div>
+        <div class="sidebar-item" onclick="processMessage('Tell me about Caste Certificate')">
+          <i class='fas fa-atom'></i>
+          <span>Caste Certificate</span>
+        </div>
+        <div class="sidebar-item" onclick="processMessage('Tell me about Income Certificate')">
+          <i class="fas fa-money-bill-wave"></i>
+          <span>Income Certificate</span>
+        </div>
+        <div class="sidebar-item" onclick="processMessage('Tell me about Domicile Certificate')">
+          <i class="fas fa-house-user"></i>
+          <span>Domicile Certificate</span>
+        </div>
+        <div class="sidebar-item" onclick="processMessage('Tell me about Marriage Certificate')">
+          <i class="fas fa-ring"></i>
+          <span>Marriage Certificate</span>
+        </div>
+        <div class="sidebar-item" onclick="processMessage('Tell me about Pan Card')">
+          <i class="fas fa-address-card"></i>
+          <span>Pan Card</span>
+        </div>
+        <div class="sidebar-item" onclick="processMessage('Tell me about Ration Card')">
+          <i class="fas fa-receipt"></i>
+          <span>Ration Card</span>
+        </div>
+        <div class="sidebar-item" onclick="processMessage('Tell me about Driving Licence')">
+          <i class="fas fa-car"></i>
+          <span>Driving Licence</span>
+        </div>
+        <div class="sidebar-item" onclick="processMessage('Tell me about Electricity')">
+          <i class="fas fa-bolt"></i>
+          <span>Electricity</span>
+        </div>
+        <div class="sidebar-item" onclick="processMessage('Tell me about Passport')">
+          <i class="fas fa-passport"></i>
+          <span>Passport</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>FAQs</h3>
+        <div class="sidebar-item" onclick="processMessage('How to apply for a birth certificate?')">
+          <i class="fas fa-question-circle"></i>
+          <span>How to apply?</span>
+        </div>
+        <div class="sidebar-item" onclick="processMessage('What documents are required?')">
+          <i class="fas fa-file-alt"></i>
+          <span>Required documents</span>
+        </div>
+        <div class="sidebar-item" onclick="processMessage('How long does it take to receive?')">
+          <i class="fas fa-clock"></i>
+          <span>Processing time</span>
+        </div>
+        <div class="sidebar-item" onclick="processMessage('Is it free or paid?')">
+          <i class="fas fa-money-bill-wave"></i>
+          <span>Fees information</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Chat Section -->
+  <div class="main-content">
+    <div class="chat-header">
+      <div class="chat-title">Government Services Assistant</div>
+    </div>
+
+    <div class="chat-container">
+      <div class="chat-history" id="chat-history">
+        <!-- Messages will appear here -->
+      </div>
+
+      <div class="input-container">
+        <div class="input-box">
+          <textarea id="user-input" placeholder="Ask about government services..." rows="1"></textarea>
+          <button id="send-button">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const chatHistory = document.getElementById("chat-history");
+    const userInput = document.getElementById("user-input");
+    const sendButton = document.getElementById("send-button");
+    const themeToggle = document.getElementById("theme-toggle");
+
+    // Auto-resize textarea
+    userInput.addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = (this.scrollHeight) + 'px';
+    });
+
+    function appendMessage(message, sender = "bot") {
+      const messageDiv = document.createElement("div");
+      messageDiv.className = `message ${sender}-message`;
+
+      const contentDiv = document.createElement("div");
+      contentDiv.className = "message-content";
+      contentDiv.textContent = message;
+
+      const timeDiv = document.createElement("div");
+      timeDiv.className = "message-time";
+      timeDiv.textContent = getCurrentTime();
+
+      messageDiv.appendChild(contentDiv);
+      messageDiv.appendChild(timeDiv);
+      chatHistory.appendChild(messageDiv);
+
+      chatHistory.scrollTop = chatHistory.scrollHeight;
+    }
+
+    function getCurrentTime() {
+      const now = new Date();
+      return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function processMessage(msgText) {
+      const message = msgText || userInput.value.trim();
+      if (message === "") return;
+
+      appendMessage(message, "user");
+
+      // Simulate bot response (replace with actual API call)
+      setTimeout(() => {
+        const responses = {
+          "birth certificate": "To apply for a birth certificate, you need to visit the municipal corporation office with proof of birth and identity documents. The process typically takes 7-10 working days.",
+          "caste certificate": "Caste certificates are issued by the Revenue Department. You'll need to submit proof of caste, residence proof, and an application form at the local Tehsil office.",
+          "income certificate": "Income certificates are issued by the Tahsildar office. You need to submit salary slips, affidavit of income, and other supporting documents.",
+          "how to apply": "You can apply online through the state government portal or visit the concerned department office with required documents.",
+          "required documents": "Typically you need ID proof, address proof, and supporting documents specific to the service you're applying for.",
+          "processing time": "Processing times vary from 3 days to 3 weeks depending on the service and department.",
+          "fees information": "Most certificates have nominal fees (₹20-₹100), while some services are completely free for certain categories."
+        };
+
+        const lowerMsg = message.toLowerCase();
+        let response = "I can help you with information about government certificates and services. Please ask a specific question.";
+
+        for (const [key, value] of Object.entries(responses)) {
+          if (lowerMsg.includes(key)) {
+            response = value;
+            break;
+          }
+        }
+
+        appendMessage(response, "bot");
+      }, 800);
+
+      userInput.value = "";
+      userInput.style.height = 'auto';
+    }
+
+    // Event listeners
+    sendButton.addEventListener("click", processMessage);
+    userInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        processMessage();
+      }
+    });
+
+    // Theme toggle
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-theme");
+      const icon = themeToggle.querySelector("i");
+      if (document.body.classList.contains("dark-theme")) {
+        icon.className = "fas fa-sun";
+      } else {
+        icon.className = "fas fa-moon";
+      }
+    });
+
+    // Initial bot greeting
+    setTimeout(() => {
+      appendMessage("Hello! I'm your government services assistant. How can I help you today?", "bot");
+    }, 500);
+  </script>
+</body>
+</html>
