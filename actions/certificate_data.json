@@ -1,0 +1,51 @@
+{
+  "birth certificate": {
+    "description": "A Birth Certificate is an official document that records the birth of a person.",
+    "how_to_apply": "You can apply online via your municipal corporation's website or in person at the local registrar office.",
+    "documents_required": "Proof of birth (hospital record), parents' ID proof, residence proof.",
+    "fees": "Nominal fee varies by state.",
+    "processing_time": "Typically 7 to 14 working days."
+  },
+  "caste certificate": {
+    "description": "A Caste Certificate is used to prove a person’s caste, especially for reservation benefits.",
+    "how_to_apply": "Apply through the state government portal or Tehsil office.",
+    "documents_required": "ID proof, residence proof, caste verification affidavit.",
+    "fees": "Usually free or a small fee.",
+    "processing_time": "Around 15 working days."
+  },
+  "marriage certificate": {
+    "description": "A Marriage Certificate is an official document that certifies the legal union of a couple.",
+    "how_to_apply": "Apply at the local municipal office or online via the state registration portal.",
+    "documents_required": "Marriage application form, age proof, residence proof, wedding photos, witnesses’ ID proofs.",
+    "fees": "Rs. 100 to Rs. 500 depending on the state.",
+    "processing_time": "Typically 7 to 30 days."
+  },
+  "death certificate": {
+    "description": "A Death Certificate officially records the death of an individual and is required for legal and administrative purposes.",
+    "how_to_apply": "Apply through the local municipal authority where the death occurred, either online or offline.",
+    "documents_required": "Proof of death (hospital report), ID of deceased, residence proof, application form.",
+    "fees": "Usually minimal or free.",
+    "processing_time": "Within 7 to 21 days."
+  },
+  "pan card": {
+    "description": "A Permanent Account Number (PAN) card is a unique identifier issued by the Income Tax Department.",
+    "how_to_apply": "Apply online through NSDL or UTIITSL portals or offline via authorized PAN centers.",
+    "documents_required": "Proof of identity, proof of address, date of birth proof, photographs.",
+    "fees": "Rs. 93 (India) or Rs. 864 (outside India) + GST.",
+    "processing_time": "Usually 15 to 20 working days."
+  },
+  "driving licence": {
+    "description": "A Driving Licence authorizes an individual to drive vehicles on public roads.",
+    "how_to_apply": "Apply online via the Parivahan portal or visit the local RTO office.",
+    "documents_required": "Learner's licence, age proof, address proof, passport-sized photos.",
+    "fees": "Rs. 200 to Rs. 500 depending on licence type.",
+    "processing_time": "Typically 15 to 30 days including driving test."
+  },
+  "income certificate": {
+    "description": "An Income Certificate is a document that certifies an individual’s income from all sources.",
+    "how_to_apply": "Apply online through state government portals or at Tehsil offices.",
+    "documents_required": "Application form, salary slip or income proof, residence proof, ID proof.",
+    "fees": "Free or a nominal fee depending on state.",
+    "processing_time": "7 to 21 working days."
+  }
+}

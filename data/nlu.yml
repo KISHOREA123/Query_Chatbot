@@ -1,0 +1,226 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - Namaste
+    - Hello
+    - Hi
+    - Good morning
+    - Good afternoon
+    - Good evening
+    - Sat Sri Akal
+    - Vanakkam
+    - Kem cho
+    - Kaisa hai
+
+- intent: goodbye
+  examples: |
+    - Bye
+    - Goodbye
+    - Alvida
+    - See you
+    - Catch you later
+    - Have a nice day
+    - Phir milenge
+    - Baad mein baat karte hain
+
+- intent: thanks
+  examples: |
+    - Thanks
+    - Thank you
+    - Dhanyavaad
+    - Shukriya
+    - Nandri
+    - Thank you so much
+    - Thanks a lot
+    - Appreciate it
+    - Bahut bahut dhanyavaad
+
+- intent: affirm
+  examples: |
+    - Yes
+    - Yeah
+    - Yup
+    - Sure
+    - Absolutely
+    - Correct
+    - Right
+    - Haan
+    - Aama
+    - Aaho
+
+- intent: deny
+  examples: |
+    - No
+    - Nope
+    - Not really
+    - Negative
+    - I'm good
+    - Na
+    - Nahin
+    - Illai
+    - No thanks
+
+- intent: certificate_info
+  examples: |
+    - Tell me about [birth certificate](certificate_type)
+    - What is a [marriage certificate](certificate_type)?
+    - Information about [passport](certificate_type)
+    - Explain [domicile certificate](certificate_type)
+    - Details of [income certificate](certificate_type)
+    - I need info on [driving license](certificate_type)
+    - What's a [caste certificate](certificate_type)?
+    - Tell me about [death certificate](certificate_type)
+    - Explain [PAN card](certificate_type)
+    - What is [ration card](certificate_type)?
+    - [Birth certificate](certificate_type) ke bare mein batao
+    - [Marriage certificate](certificate_type) ki jaankari chahiye
+    - [Passport](certificate_type) के बारे में जानकारी दें
+
+- intent: application_process
+  examples: |
+    - How do I apply for [birth certificate](certificate_type)?
+    - What is the application process for [PAN card](certificate_type)?
+    - Steps to get [ration card](certificate_type)
+    - Application procedure for [passport](certificate_type)
+    - How to apply for [driving license](certificate_type)?
+    - What are the steps to obtain [caste certificate](certificate_type)?
+    - Process to get [income certificate](certificate_type)
+    - [Marriage certificate](certificate_type) ke liye apply kaise karein?
+    - [Death certificate](certificate_type) पाने की प्रक्रिया क्या है?
+
+- intent: documents_required
+  examples: |
+    - What documents do I need for [passport](certificate_type)?
+    - Required documents for [driving license](certificate_type)
+    - Papers needed for [birth certificate](certificate_type)
+    - What papers should I submit for [ration card](certificate_type)?
+    - List of documents for [marriage certificate](certificate_type)
+    - Supporting documents for [income certificate](certificate_type)
+    - Proofs required for [caste certificate](certificate_type)
+    - [PAN card](certificate_type) ke liye kya kya documents chahiye?
+    - [Death certificate](certificate_type) के लिए कौन से दस्तावेज़ चाहिए?
+
+- intent: check_eligibility
+  examples: |
+    - Am I eligible for [ration card](certificate_type)?
+    - Who can apply for [caste certificate](certificate_type)?
+    - Eligibility criteria for [passport](certificate_type)
+    - Can I get [income certificate](certificate_type)?
+    - Who qualifies for [domicile certificate](certificate_type)?
+    - Requirements to apply for [driving license](certificate_type)
+    - Do I qualify for [marriage certificate](certificate_type)?
+    - [Birth certificate](certificate_type) ke liye eligibility kya hai?
+    - [PAN card](certificate_type) पाने के लिए योग्यता क्या है?
+
+- intent: certificate_cost
+  examples: |
+    - How much does [passport](certificate_type) cost?
+    - What are the fees for [driving license](certificate_type)?
+    - Price of [birth certificate](certificate_type)
+    - Application charges for [marriage certificate](certificate_type)
+    - How much to pay for [ration card](certificate_type)?
+    - Is there any fee for [income certificate](certificate_type)?
+    - Cost details of [caste certificate](certificate_type)
+    - [PAN card](certificate_type) ki fees kitni hai?
+    - [Death certificate](certificate_type) की लागत कितनी है?
+
+- intent: issuing_authority
+  examples: |
+    - Who issues [passport](certificate_type)?
+    - Where is [birth certificate](certificate_type) issued from?
+    - Which office provides [ration card](certificate_type)?
+    - Issuing authority for [driving license](certificate_type)
+    - Government department for [marriage certificate](certificate_type)
+    - Who gives [income certificate](certificate_type)?
+    - [PAN card](certificate_type) kaun jari karta hai?
+    - [Caste certificate](certificate_type) कौन जारी करता है?
+
+- intent: processing_time
+  examples: |
+    - How long does [passport](certificate_type) take?
+    - Processing time for [driving license](certificate_type)
+    - When will I get my [birth certificate](certificate_type)?
+    - Duration to receive [ration card](certificate_type)
+    - Time required for [marriage certificate](certificate_type)
+    - How many days to get [income certificate](certificate_type)?
+    - Is [caste certificate](certificate_type) process fast?
+    - [PAN card](certificate_type) kitne din mein milta hai?
+    - [Death certificate](certificate_type) पाने में कितना समय लगता है?
+
+- intent: online_application
+  examples: |
+    - Can I apply for [passport](certificate_type) online?
+    - Online process for [driving license](certificate_type)
+    - Website to apply for [birth certificate](certificate_type)
+    - Digital application for [ration card](certificate_type)
+    - Internet application for [marriage certificate](certificate_type)
+    - Apply for [income certificate](certificate_type) from home
+    - Online portal for [caste certificate](certificate_type)
+    - [PAN card](certificate_type) online kaise apply karein?
+    - [Death certificate](certificate_type) के लिए ऑनलाइन आवेदन कैसे करें?
+
+- intent: duplicate_certificate
+  examples: |
+    - I lost my [passport](certificate_type)
+    - How to get duplicate [driving license](certificate_type)?
+    - Replacement process for [birth certificate](certificate_type)
+    - My [ration card](certificate_type) is damaged
+    - Need a new copy of [marriage certificate](certificate_type)
+    - Reissue procedure for [income certificate](certificate_type)
+    - Lost my [caste certificate](certificate_type)
+    - [PAN card](certificate_type) duplicate kaise banaye?
+    - [Death certificate](certificate_type) का डुप्लीकेट कैसे प्राप्त करें?
+
+- intent: certificate_correction
+  examples: |
+    - There's a mistake in my [passport](certificate_type)
+    - How to correct details in [driving license](certificate_type)?
+    - Name is wrong in [birth certificate](certificate_type)
+    - Error in [ration card](certificate_type) document
+    - Need to change information in [marriage certificate](certificate_type)
+    - Rectification process for [income certificate](certificate_type)
+    - Update details in [caste certificate](certificate_type)
+    - [PAN card](certificate_type) mein correction kaise karein?
+    - [Death certificate](certificate_type) में सुधार कैसे करें?
+
+- intent: certificate_renewal
+  examples: |
+    - How to renew [passport](certificate_type)?
+    - Renewal process for [driving license](certificate_type)
+    - My [ration card](certificate_type) is expiring
+    - Need to renew [marriage certificate](certificate_type)
+    - Is renewal required for [birth certificate](certificate_type)?
+    - How often to renew [income certificate](certificate_type)?
+    - [PAN card](certificate_type) renewal process
+    - [Caste certificate](certificate_type) को नवीनीकृत कैसे करें?
+
+- intent: certificate_emergency
+  examples: |
+    - Need urgent [passport](certificate_type)
+    - Emergency [driving license](certificate_type)
+    - Tatkal [ration card](certificate_type)
+    - Fast track [marriage certificate](certificate_type)
+    - Quick [income certificate](certificate_type)
+    - Immediate [caste certificate](certificate_type)
+    - [PAN card](certificate_type) urgently
+    - [Death certificate](certificate_type) जल्दी चाहिए
+
+- intent: certificate_validity
+  examples: |
+    - How long is [passport](certificate_type) valid?
+    - Validity period of [driving license](certificate_type)
+    - Does [birth certificate](certificate_type) expire?
+    - Duration of [ration card](certificate_type)
+    - [Marriage certificate](certificate_type) validity
+    - [Income certificate](certificate_type) expiry
+    - [Caste certificate](certificate_type) kitne saal tak valid hai?
+    - [PAN card](certificate_type) की वैधता अवधि क्या है?
+
+- intent: ask_land_registration_types
+  examples: |
+    - what types of land registration exist
+    - kinds of property deeds
+    - different land registration methods
+

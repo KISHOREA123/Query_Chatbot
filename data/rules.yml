@@ -1,0 +1,126 @@
+version: "3.1"
+
+rules:
+- rule: Greet and reset context
+  steps:
+  - intent: greet
+  - action: action_reset_certificate_type
+  - action: utter_greet
+  - active_loop: null
+
+- rule: Goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+  - active_loop: null
+
+- rule: Thank you response
+  steps:
+  - intent: thanks
+  - action: utter_thanks
+  - active_loop: null
+
+- rule: Certificate type clarification
+  steps:
+  - intent: certificate_info
+  - action: utter_ask_certificate_type
+  - active_loop: null
+
+- rule: Provide general certificate info
+  steps:
+  - intent: certificate_info
+    entities:
+    - certificate_type
+  - action: action_provide_certificate_info
+  - action: utter_offer_more_help
+  - active_loop: null
+
+- rule: Follow up with application process
+  steps:
+  - intent: application_process
+  - action: action_provide_application_process
+  - action: utter_offer_more_help
+  - active_loop: null
+
+- rule: Follow up with documents required
+  steps:
+  - intent: documents_required
+  - action: action_provide_documents_list
+  - action: utter_offer_more_help
+  - active_loop: null
+
+- rule: Check eligibility
+  steps:
+  - intent: check_eligibility
+  - action: action_check_eligibility
+  - action: utter_offer_more_help
+  - active_loop: null
+
+- rule: Provide cost information
+  steps:
+  - intent: certificate_cost
+  - action: action_provide_cost_info
+  - action: utter_offer_more_help
+  - active_loop: null
+
+- rule: Provide issuing authority
+  steps:
+  - intent: issuing_authority
+  - action: action_provide_issuing_authority
+  - action: utter_offer_more_help
+  - active_loop: null
+
+- rule: Provide processing time
+  steps:
+  - intent: processing_time
+  - action: action_provide_processing_time
+  - action: utter_offer_more_help
+  - active_loop: null
+
+- rule: Provide online application info
+  steps:
+  - intent: online_application
+  - action: action_provide_online_application_info
+  - action: utter_offer_more_help
+  - active_loop: null
+
+- rule: Provide duplicate certificate info
+  steps:
+  - intent: duplicate_certificate
+  - action: action_provide_duplicate_info
+  - action: utter_offer_more_help
+  - active_loop: null
+
+- rule: Provide correction info
+  steps:
+  - intent: certificate_correction
+  - action: action_provide_correction_info
+  - action: utter_offer_more_help
+  - active_loop: null
+
+- rule: Provide renewal info
+  steps:
+  - intent: certificate_renewal
+  - action: action_provide_renewal_info
+  - action: utter_offer_more_help
+  - active_loop: null
+
+- rule: Provide validity info
+  steps:
+  - intent: certificate_validity
+  - action: action_provide_validity_info
+  - action: utter_offer_more_help
+  - active_loop: null
+
+- rule: Provide emergency info
+  steps:
+  - intent: certificate_emergency
+  - action: action_provide_emergency_info
+  - action: utter_offer_more_help
+  - active_loop: null
+
+
+
+
+
+

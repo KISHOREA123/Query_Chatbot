@@ -1,0 +1,46 @@
+{
+    "birth_certificate": {
+      "definition": "A birth certificate is an official document that records a person's birth details, including name, date, place of birth, and parents' details.",
+      "documents_needed": "You need a hospital birth report, parents' ID proof, and sometimes a marriage certificate.",
+      "cost": "The first copy is free. Additional copies require a small fee.",
+      "where_to_apply": "You can apply at the local municipal office or online at https://tnedistrict.tn.gov.in/.",
+      "issuing_authority": "Birth certificates are issued by Municipal Corporations, Municipalities, or Village Panchayats.",
+      "lost_certificate": "You can apply for a duplicate birth certificate at the issuing authority's office with proof of identity."
+    },
+    "Death Certificate": {
+      "definition": "A birth certificate is an official document that records a person's birth details, including name, date, place of birth, and parents' details.",
+      "documents_needed": "You need a hospital birth report, parents' ID proof, and sometimes a marriage certificate.",
+      "where_to_apply": "You can apply at the local municipal office or online at https://tnedistrict.tn.gov.in/.",
+      "issuing_authority": "Birth certificates are issued by Municipal Corporations, Municipalities, or Village Panchayats.",
+      "lost_certificate": "You can apply for a duplicate birth certificate at the issuing authority's office with proof of identity."
+    },
+    "Marriage Certificate": {
+      "definition": "A birth certificate is an official document that records a person's birth details, including name, date, place of birth, and parents' details.",
+      "documents_needed": "You need a hospital birth report, parents' ID proof, and sometimes a marriage certificate.",
+      "where_to_apply": "You can apply at the local municipal office or online at https://tnedistrict.tn.gov.in/.",
+      "issuing_authority": "Birth certificates are issued by Municipal Corporations, Municipalities, or Village Panchayats.",
+      "lost_certificate": "You can apply for a duplicate birth certificate at the issuing authority's office with proof of identity."
+    },
+    "Income Certificate": {
+      "definition": "A birth certificate is an official document that records a person's birth details, including name, date, place of birth, and parents' details.",
+      "documents_needed": "You need a hospital birth report, parents' ID proof, and sometimes a marriage certificate.",
+      "where_to_apply": "You can apply at the local municipal office or online at https://tnedistrict.tn.gov.in/.",
+      "issuing_authority": "Birth certificates are issued by Municipal Corporations, Municipalities, or Village Panchayats.",
+      "lost_certificate": "You can apply for a duplicate birth certificate at the issuing authority's office with proof of identity."
+    },
+    "Domicile Certificate": {
+      "definition": "A birth certificate is an official document that records a person's birth details, including name, date, place of birth, and parents' details.",
+      "documents_needed": "You need a hospital birth report, parents' ID proof, and sometimes a marriage certificate.",
+      "where_to_apply": "You can apply at the local municipal office or online at https://tnedistrict.tn.gov.in/.",
+      "issuing_authority": "Birth certificates are issued by Municipal Corporations, Municipalities, or Village Panchayats.",
+      "lost_certificate": "You can apply for a duplicate birth certificate at the issuing authority's office with proof of identity."
+    },
+    "Driving License": {
+      "definition": "A birth certificate is an official document that records a person's birth details, including name, date, place of birth, and parents' details.",
+      "documents_needed": "You need a hospital birth report, parents' ID proof, and sometimes a marriage certificate.",
+      "where_to_apply": "You can apply at the local municipal office or online at https://tnedistrict.tn.gov.in/.",
+      "issuing_authority": "Birth certificates are issued by Municipal Corporations, Municipalities, or Village Panchayats.",
+      "lost_licence": "You can apply for a duplicate birth certificate at the issuing authority's office with proof of identity."
+    }
+  }
+  
